@@ -4,6 +4,7 @@ import bs4
 import random
 import webbrowser
 
+# Generates Adidas URL for sneaker based on sneaker type, size, and model
 def URLGen(model,size):
     base_size = 560
     # this base size is for size 5.5 shoes
@@ -14,14 +15,13 @@ def URLGen(model,size):
     URL = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
     return URL
 
-def CheckStock(model):
-    # url: 'https://www.adidas.com/us/nmd_r1-shoes/BD7730.html?forceSelSize=BD7730_620'
-    # size url: 'https://www.adidas.com/api/products/BD7730/availability?sitePath=us'
+# Returns a dictionary of shoes sizes and online availability
+# for a specific Adidas sneaker model
+def check_stock(model):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
     size_url = 'https://www.adidas.com/api/products/' + str(model) + '/availability?sitePath=us'
-    raw_sizes =  requests.get(size_url,headers=headers)
-    raw_sizes = raw_sizes.text
-    size_data = json.loads(raw_sizes)
+    raw_sizes =  (requests.get(size_url,headers=headers)).text
+    size_data =  json.dumps(json.loads(raw_sizes))
     list = size_data['variation_list']
     i = 0
     size_dict = {}
@@ -34,6 +34,7 @@ def CheckStock(model):
         size_lookup.update(value)
     return size_lookup
 
-def Main(model, size):
+# Main method
+def main(model, size):
     url = URLGen(model,size)
-    CheckStock(model)
+    check_stock(model)
