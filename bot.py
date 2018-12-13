@@ -1,4 +1,5 @@
 import requests
+import json
 import bs4
 import random
 import webbrowser
@@ -11,22 +12,28 @@ def URLGen(model,size):
     raw_size = shoe_size + base_size
     shoe_size_code = int(raw_size)
     URL = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
-    print str(URL)
     return URL
 
-def CheckStock(url,model):
+def CheckStock(model):
+    # url: 'https://www.adidas.com/us/nmd_r1-shoes/BD7730.html?forceSelSize=BD7730_620'
+    # size url: 'https://www.adidas.com/api/products/BD7730/availability?sitePath=us'
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
-    raw_html =  requests.get(url,headers=headers)
-    page = bs4.BeautifulSoup(raw_html.text, "lxml")
-    list_raw_sizes = page.select('.size-dropdown-block')
-    sizes = str(list_raw_sizes[0].getText()).replace('\t','')
-    sizes = sizes.replace('\n\n',' ')
-    sizes = sizes.split()
-    sizes.remove('Select')
-    sizes.remove('size')
-    for size in sizes:
-        print(str(model) + 'Sizes: ' + str(size) + ' Available')
+    size_url = 'https://www.adidas.com/api/products/' + str(model) + '/availability?sitePath=us'
+    raw_sizes =  requests.get(size_url,headers=headers)
+    raw_sizes = raw_sizes.text
+    size_data = json.loads(raw_sizes)
+    list = size_data['variation_list']
+    i = 0
+    size_dict = {}
+    size_lookup = {}
+    keys = range(20)
+    for k in keys:
+        size_dict[i] = {list[i]['size']:list[i]['availability_status']}
+        i=i+1
+    for key,value in size_dict.items():
+        size_lookup.update(value)
+    return size_lookup
 
 def Main(model, size):
     url = URLGen(model,size)
-    CheckStock(url, model)
+    CheckStock(model)
