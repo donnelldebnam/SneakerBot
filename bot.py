@@ -14,7 +14,7 @@ def URLGen(model,size):
     URL = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
     return URL
 
-def CheckStock(url,model):
+def CheckStock(model):
     # url: 'https://www.adidas.com/us/nmd_r1-shoes/BD7730.html?forceSelSize=BD7730_620'
     # size url: 'https://www.adidas.com/api/products/BD7730/availability?sitePath=us'
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
@@ -22,9 +22,18 @@ def CheckStock(url,model):
     raw_sizes =  requests.get(size_url,headers=headers)
     raw_sizes = raw_sizes.text
     size_data = json.loads(raw_sizes)
-    for var in size_data['variation_list']:
-        print var
+    list = size_data['variation_list']
+    i = 0
+    size_dict = {}
+    size_lookup = {}
+    keys = range(20)
+    for k in keys:
+        size_dict[i] = {list[i]['size']:list[i]['availability_status']}
+        i=i+1
+    for key,value in size_dict.items():
+        size_lookup.update(value)
+    return size_lookup
 
 def Main(model, size):
     url = URLGen(model,size)
-    CheckStock(url, model)
+    CheckStock(model)
