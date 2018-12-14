@@ -17,11 +17,11 @@ def URLGen(model,size):
     URL = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
     return URL
 
-# Returns a dictionary of shoes sizes and online availability
+# Returns a dictionary of shoe sizes and online availability
 # for a specific Adidas sneaker model
-def check_stock(model,url):
+def check_stock(model):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
-    size_url = 'https://www.adidas.com/api/products/' + str(model) + '/availability?sitePath=us'
+    size_url = 'https://www.adidas.com/api/products/{}/availability?sitePath=us'.format(str(model))
     raw_sizes = (requests.get(size_url,headers=headers)).text
     size_data = json.loads(raw_sizes)
     list = size_data['variation_list']
@@ -43,8 +43,7 @@ def main(model,size):
 
 # Set up bot environment to automate purchase if sneaker is available
 def sneakerBot(model,size):
-    url = URLGen(model,size)
-    sizes = check_stock(model,url)
+    sizes = check_stock(model)
     if str(size) in sizes:
         print "We saved you a pair!"
     else:
