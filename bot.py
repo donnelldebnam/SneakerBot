@@ -44,7 +44,12 @@ def main(model,size):
 # Set up bot environment to automate purchase if sneaker is available
 def sneakerBot(model,size):
     sizes = check_stock(model)
+    url = URLGen(model,size)
     if str(size) in sizes:
-        print "We saved you a pair!"
+        if str(sizes[str(size)]) == 'IN_STOCK':
+            print "We have your size!"
+            webbrowser.open(url)
+        else:
+            print "Size not available!"
     else:
         print "We were not able to save you a pair :("
