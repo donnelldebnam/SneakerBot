@@ -36,9 +36,9 @@ def check_stock(model):
         size_lookup.update(value)
     return size_lookup
 
-def main(model,size):
-    url = URLGen(model,size)
-    check_stock(model)
+def Main():
+    size = input('Shoe size: ')
+    model = raw_input('Model #: ')
     sneakerBot(model,size)
 
 # Set up bot environment to automate purchase if sneaker is available
