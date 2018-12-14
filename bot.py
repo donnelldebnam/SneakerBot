@@ -3,6 +3,8 @@ import json
 import bs4
 import random
 import webbrowser
+import RandomHeaders
+import threading
 
 # Generates Adidas URL for sneaker based on sneaker type, size, and model
 def URLGen(model,size):
@@ -17,11 +19,11 @@ def URLGen(model,size):
 
 # Returns a dictionary of shoes sizes and online availability
 # for a specific Adidas sneaker model
-def check_stock(model):
+def check_stock(model,url):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
     size_url = 'https://www.adidas.com/api/products/' + str(model) + '/availability?sitePath=us'
-    raw_sizes =  (requests.get(size_url,headers=headers)).text
-    size_data =  json.dumps(json.loads(raw_sizes))
+    raw_sizes = (requests.get(size_url,headers=headers)).text
+    size_data = json.loads(raw_sizes)
     list = size_data['variation_list']
     i = 0
     size_dict = {}
@@ -34,7 +36,16 @@ def check_stock(model):
         size_lookup.update(value)
     return size_lookup
 
-# Main method
-def main(model, size):
+def main(model,size):
     url = URLGen(model,size)
     check_stock(model)
+    sneakerBot(model,size)
+
+# Set up bot environment to automate purchase if sneaker is available
+def sneakerBot(model,size):
+    url = URLGen(model,size)
+    sizes = check_stock(model,url)
+    if str(size) in sizes:
+        print "We saved you a pair!"
+    else:
+        print "We were not able to save you a pair :("
