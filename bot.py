@@ -3,8 +3,7 @@ import json
 import bs4
 import random
 import webbrowser
-import RandomHeaders
-import threading
+import browserOps
 
 # Generates Adidas URL for sneaker based on sneaker type, size, and model
 def URLGen(model,size):
@@ -47,8 +46,8 @@ def sneakerBot(model,size):
     url = URLGen(model,size)
     if str(size) in sizes:
         if str(sizes[str(size)]) == 'IN_STOCK':
-            print "We have your size!"
-            webbrowser.open(url)
+            print "We're adding them to your bag!"
+            browserOps.add_to_bag(url)
         else:
             print "Size not available!"
     else:
