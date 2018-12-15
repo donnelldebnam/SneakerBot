@@ -1,0 +1,158 @@
+1544857608534	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.NsLBRdXYtBPE"
+1544857608964	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544857608964	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544857610133	Marionette	INFO	Listening on port 49524
+1544857610199	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-12-15 02:06:55.241 firefox-bin[17071:2245318] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+1544857764724	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.7XrwxxsrAklX"
+1544857765290	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544857765290	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544857766612	Marionette	INFO	Listening on port 49595
+1544857766676	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-12-15 02:09:27.980 firefox-bin[17092:2247389] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript error: resource:///actors/NetErrorChild.jsm, line 651: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIStringBundle.GetStringFromName]
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript error: https://adidas.my.salesforce.com/embeddedservice/5.0/frame/chasitor.esw.min.js, line 1: TypeError: this.chasitorSettings is undefined
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+1544858839600	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.dhN7w1bA9DB4"
+1544858840144	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544858840144	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544858841329	Marionette	INFO	Listening on port 50266
+1544858841362	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-12-15 02:27:35.652 firefox-bin[17140:2257850] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+1544858864450	Marionette	INFO	Stopped listening on port 50266
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+JavaScript error: https://adidas.my.salesforce.com/embeddedservice/5.0/frame/chasitor.esw.min.js, line 1: TypeError: this.chasitorSettings is undefined
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/utils/markup.js, line 243: TypeError: this.highlighterEnv is null
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/highlighters/utils/markup.js, line 243: TypeError: this.highlighterEnv is null
+JavaScript error: resource://devtools/shared/base-loader.js -> resource://devtools/server/actors/inspector/walker.js, line 322: TypeError: this._refMap is null
+Can't find symbol 'GetGraphicsResetStatus'.
+Can't find symbol 'GetGraphicsResetStatus'.
+Can't find symbol 'GetGraphicsResetStatus'.
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+1544859723583	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.CLHvHEHB3KNW"
+1544859724051	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544859724051	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544859725252	Marionette	INFO	Listening on port 50647
+1544859725324	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-12-15 02:42:19.551 firefox-bin[17219:2265929] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+1544859754566	Marionette	INFO	Stopped listening on port 50647
+JavaScript error: resource://gre/modules/WebProgressChild.jsm, line 58: TypeError: this.mm.content is null
+1544859795886	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.e8KUjpWjtuAM"
+1544859796319	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544859796319	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544859797479	Marionette	INFO	Listening on port 50768
+1544859797533	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-12-15 02:43:31.798 firefox-bin[17239:2266986] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+JavaScript error: https://apps.bazaarvoice.com/deployments/adidasglobal/main_site/production/en_US/bv.js, line 12: TypeError: can't redefine non-configurable property "bvCallback"
+JavaScript error: https://apps.bazaarvoice.com/deployments/adidasglobal/main_site/production/en_US/bv.js, line 12: TypeError: can't redefine non-configurable property "bvCallback"
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+[Child 17241, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+[Child 17241, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+JavaScript error: https://adidas.my.salesforce.com/embeddedservice/5.0/frame/chasitor.esw.min.js, line 1: TypeError: this.chasitorSettings is undefined
+1544859869546	Marionette	INFO	Stopped listening on port 49595
+1544859871718	Marionette	INFO	Stopped listening on port 49524
+1544859887932	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.QQYMONdrdWUQ"
+1544859888363	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544859888363	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544859889466	Marionette	INFO	Listening on port 51100
+1544859889571	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-12-15 02:45:03.823 firefox-bin[17245:2268609] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+JavaScript error: https://apps.bazaarvoice.com/deployments/adidasglobal/main_site/production/en_US/bv.js, line 12: TypeError: can't redefine non-configurable property "bvCallback"
+JavaScript error: https://apps.bazaarvoice.com/deployments/adidasglobal/main_site/production/en_US/bv.js, line 12: TypeError: can't redefine non-configurable property "bvCallback"
+JavaScript error: https://apps.bazaarvoice.com/deployments/adidasglobal/main_site/production/en_US/bv.js, line 12: TypeError: can't redefine non-configurable property "bvCallback"
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+1544860060418	Marionette	INFO	Stopped listening on port 51100
+1544860072887	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.cjtdq6OSRJ1r"
+1544860073331	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1544860073332	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+Can't find symbol 'GetGraphicsResetStatus'.
+1544860074464	Marionette	INFO	Listening on port 51368
+1544860074520	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript warning: https://mathid.mathtag.com/d/i.js, line 1: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+2018-12-15 02:48:08.786 firefox-bin[17269:2270523] Persistent UI failed to open file file:///Users/donnelldebnam/Library/Saved%20Application%20State/org.mozilla.firefox.savedState/window_1.data: Permission denied (13)
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+JavaScript error: https://adidas.my.salesforce.com/embeddedservice/5.0/frame/chasitor.esw.min.js, line 1: TypeError: this.chasitorSettings is undefined
