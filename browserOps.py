@@ -2,7 +2,6 @@ from selenium import webdriver
 import time
 
 def checkout(url):
-
     # Boot up webdriver; process adidas url
     driver = webdriver.Firefox()
     driver.get(url)
@@ -14,11 +13,9 @@ def checkout(url):
     # Cast temp, initialize constant
     items_in_bag = int(items_in_bag)
     UPDATED = items_in_bag + 1
-    # Grab CSS to "Add to Bag" button
+    # Grab CSS to "Add to Bag" button; click
     btn = driver.find_element_by_css_selector('.gl-cta.gl-cta--primary.gl-cta--full-width.btn-bag')
-    # Click "Add to cart" button
     btn.click()
-
     # While bag has not updated, wait...
     while items_in_bag != UPDATED:
         time.sleep(1)
@@ -28,3 +25,6 @@ def checkout(url):
         items_in_bag = int(items_in_bag)
     # Navigate to Checkout page
     driver.get('https://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/en_US/Cart-Show')
+    # FWD to CardInfo page
+    btn = driver.find_element_by_css_selector('.gl-cta.gl-cta--primary.gl-cta--full-width')
+    btn.click()
