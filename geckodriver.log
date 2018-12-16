@@ -156,6 +156,7 @@ console.error: BroadcastService:
     remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
 
 JavaScript error: https://adidas.my.salesforce.com/embeddedservice/5.0/frame/chasitor.esw.min.js, line 1: TypeError: this.chasitorSettings is undefined
+<<<<<<< HEAD
 1544860647228	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/1k/f91wfw3j2db4bhv7098t23mh0000gn/T/rust_mozprofile.hXDoI8cnVDeI"
 1544860647647	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
 1544860647648	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
@@ -779,3 +780,8 @@ JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line
 JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
 JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 87: unreachable code after return statement
 JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-4599367, line 147: unreachable code after return statement
+=======
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 17270, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+>>>>>>> 152f87b41a9582484cd524e78e98bd78ba3b80d7
