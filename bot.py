@@ -47,7 +47,7 @@ def sneakerBot(model,size):
     if str(size) in sizes:
         if str(sizes[str(size)]) == 'IN_STOCK':
             print "We're adding them to your bag!"
-            browserOps.add_to_bag(url)
+            browserOps.checkout(url)
         else:
             print "Size not available!"
     else:
