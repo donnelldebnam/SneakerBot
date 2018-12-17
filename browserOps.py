@@ -33,7 +33,7 @@ def process_cart(url):
     btn.click()
 
 def autofill_shipping():
-    # Read client info from file
+    # Read client info from file.
     with open('ClientInfo.txt','r') as file:
         #Autofill information
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_firstName').send_keys(file.readline())

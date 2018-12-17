@@ -46,7 +46,7 @@ def sneakerBot(model,size):
     url = URLGen(model,size)
     if str(size) in sizes:
         if str(sizes[str(size)]) == 'IN_STOCK':
-            print "We're adding them to your bag!"
+            print "We're securing you a pair!"
             browserOps.process_cart(url)
             browserOps.autofill_shipping()
             browserOps.autofill_card()

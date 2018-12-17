@@ -1,8 +1,8 @@
-First
-Last
-31 Hopkins Plaza
-Bowie
-Maryland
-20721
-202 671 2871
-mail@gmail.com
+FIRST NAME
+LAST NAME
+520 N Michigan Ave
+Chicago
+Illinois
+60611
+(312)000-000
+mail@mail.com
