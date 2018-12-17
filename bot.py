@@ -49,6 +49,7 @@ def sneakerBot(model,size):
             print "We're adding them to your bag!"
             browserOps.process_cart(url)
             browserOps.autofill_shipping()
+            browserOps.autofill_card()
         else:
             print "Size not available!"
     else:

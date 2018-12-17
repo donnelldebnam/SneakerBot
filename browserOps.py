@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 
+# Boot up webdriver (Firefox)
 driver = webdriver.Firefox()
 
 def process_cart(url):
@@ -34,45 +35,45 @@ def process_cart(url):
 def autofill_shipping():
     # Read client info from file
     with open('ClientInfo.txt','r') as file:
-        my_first = file.readline()
-        my_last = file.readline()
-        my_street = file.readline()
-        my_city = file.readline()
-        my_zip = file.readline()
-        my_phone = file.readline()
-        my_email = file.readline()
+        #Autofill information
+        driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_firstName').send_keys(file.readline())
+        driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_lastName').send_keys(file.readline())
+        driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_address1').send_keys(file.readline())
+        driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_city').send_keys(file.readline())
+        s = (file.readline()).replace('\n','')
+        driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_postalCode').send_keys(file.readline())
+        driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_phone').send_keys(file.readline())
+        driver.find_element_by_id('dwfrm_shipping_email_emailAddress').send_keys(file.readline())
+    # Select state
+    driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div/div/div/div[2]/form/div[1]/ng-form/div[1]/div/div[6]/div[1]/div[1]').click()
+    list = driver.find_elements_by_class_name('materialize-select-list.dwfrm_shipping_shiptoaddress_shippingAddress_countyProvince')
+    states = list[0].find_elements_by_css_selector('*')
+    # Select state
+    for state in states:
+        if state.text == s:
+            state.click()
+    # Send to payment screen.
+    driver.find_element_by_class_name('gl-cta.gl-cta--primary').click()
 
-    # Navigate to Shipping page
-    driver.get('https://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/en_US/COShipping-Show')
-    # Autofill first name
-    input = driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_firstName')
-    input.send_keys(my_first)
-    # Autofill last name
-    input = driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_lastName')
-    input.send_keys(my_last)
-    # Autofill street
-    input = driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_address1')
-    input.send_keys(my_street)
-    # autofill city
-    input = driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_city')
-    input.send_keys(my_city)
-    # Select Maryland as state
-    driver.find_element_by_xpath(
-        '//*[@id="shippingForm"]/div[1]/ng-form/div[1]/div/div[6]/div[1]/div[1]'
-        ).click()
-    driver.find_element_by_xpath(
-        '/html/body/div[1]/div[3]/div/div/div/div/div[2]/form/div[1]/ng-form/div[1]/div/div[6]/div[1]/div[2]/div[25]'
-        ).click()
-    # autofill zip
-    input = driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_postalCode')
-    input.send_keys(my_zip)
-    # autofill phone
-    input = driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_phone')
-    input.send_keys(my_phone)
-    # autofill email
-    input = driver.find_element_by_id('dwfrm_shipping_email_emailAddress')
-    input.send_keys(my_email)
-    # Send to Payment Screen
-    driver.find_element_by_xpath(
-        '/html/body/div[1]/div[3]/div/div/div/div/div[2]/form/div[1]/ng-form/div[5]/div/button'
-        ).click()
+def autofill_card():
+    # Read in card information from file.
+    with open('CardInfo.txt','r') as card:
+        #Autofill form.
+        driver.find_element_by_id('dwfrm_payment_creditCard_number').send_keys(card.readline())
+        driver.find_element_by_id('dwfrm_payment_creditCard_cvn').send_keys(card.readline())
+        m = (card.readline()).replace('\n','')
+        y = (card.readline()).replace('\n','')
+        # Open dropdown;
+        driver.find_element_by_id('dwfrm_payment_creditCard_month_display_field').click()
+        driver.find_element_by_id('dwfrm_payment_creditCard_year_display_field').click()
+        list = driver.find_elements_by_class_name('materialize-select-list')
+        months = list[0].find_elements_by_css_selector('*')
+        # Select month
+        for month in months:
+            if month.text == m:
+                month.click()
+        # Select year
+        years = list[1].find_elements_by_css_selector('*')
+        for year in years:
+            if year.text == y:
+                year.click()
