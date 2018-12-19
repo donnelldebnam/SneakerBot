@@ -24,13 +24,10 @@ def check_stock(model):
     raw_sizes = (requests.get(size_url,headers=headers)).text
     size_data = json.loads(raw_sizes)
     list = size_data['variation_list']
-    i = 0
     size_dict = {}
     size_lookup = {}
-    keys = range(20)
-    for k in keys:
+    for i in range(21):
         size_dict[i] = {list[i]['size']:list[i]['availability_status']}
-        i=i+1
     for key,value in size_dict.items():
         size_lookup.update(value)
     return size_lookup
