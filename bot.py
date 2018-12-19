@@ -1,8 +1,6 @@
 import requests
 import json
 import bs4
-import random
-import webbrowser
 import browserOps
 
 # Generates Adidas URL for sneaker based on sneaker type, size, and model
