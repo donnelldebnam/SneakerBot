@@ -63,17 +63,17 @@ def autofill_card():
         driver.find_element_by_id('dwfrm_payment_creditCard_cvn').send_keys(card.readline())
         m = (card.readline()).replace('\n','')
         y = (card.readline()).replace('\n','')
-        # Open dropdown;
-        driver.find_element_by_id('dwfrm_payment_creditCard_month_display_field').click()
-        driver.find_element_by_id('dwfrm_payment_creditCard_year_display_field').click()
-        list = driver.find_elements_by_class_name('materialize-select-list')
-        months = list[0].find_elements_by_css_selector('*')
-        # Select month
-        for month in months:
-            if month.text == m:
-                month.click()
-        # Select year
-        years = list[1].find_elements_by_css_selector('*')
-        for year in years:
-            if year.text == y:
-                year.click()
+    # Open dropdown menus; get months & years
+    driver.find_element_by_id('dwfrm_payment_creditCard_month_display_field').click()
+    driver.find_element_by_id('dwfrm_payment_creditCard_year_display_field').click()
+    list = driver.find_elements_by_class_name('materialize-select-list')
+    months = list[0].find_elements_by_css_selector('*')
+    years = list[1].find_elements_by_css_selector('*')
+    # Select month
+    for month in months:
+        if month.text == m:
+            month.click()
+    # Select year
+    for year in years:
+        if year.text == y:
+            year.click()
