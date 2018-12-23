@@ -1,7 +1,6 @@
 from selenium import webdriver
 import time
 
-# Boot up webdriver (Firefox)
 driver = webdriver.Firefox()
 
 def process_cart(url):
@@ -9,7 +8,7 @@ def process_cart(url):
     driver.get(url)
     # Get initial amount of items in bag
     items_in_bag = driver.find_element_by_css_selector('.glass_cart_count___1UWuC').text
-    # If bag is empty, assign valid int value
+    # If bag is empty, replace str with valid int value
     if items_in_bag == '':
         items_in_bag = 0
     # Cast temp, initialize constant
@@ -34,21 +33,23 @@ def process_cart(url):
 
 def autofill_shipping():
     # Read client info from file.
-    with open('ClientInfo.txt','r') as file:
-        #Autofill information
+    with open('ClientInfo.txt', 'r') as file:
+        # Autofill information
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_firstName').send_keys(file.readline())
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_lastName').send_keys(file.readline())
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_address1').send_keys(file.readline())
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_city').send_keys(file.readline())
-        s = (file.readline()).replace('\n','')
+        # Store indicated state.
+        s = (file.readline()).replace('\n', '')
+        # Continue to autofill...
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_postalCode').send_keys(file.readline())
         driver.find_element_by_id('dwfrm_shipping_shiptoaddress_shippingAddress_phone').send_keys(file.readline())
         driver.find_element_by_id('dwfrm_shipping_email_emailAddress').send_keys(file.readline())
-    # Select state
+    # Open states dropdown.
     driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div/div/div/div[2]/form/div[1]/ng-form/div[1]/div/div[6]/div[1]/div[1]').click()
     list = driver.find_elements_by_class_name('materialize-select-list.dwfrm_shipping_shiptoaddress_shippingAddress_countyProvince')
     states = list[0].find_elements_by_css_selector('*')
-    # Select state
+    # Select indicated state.
     for state in states:
         if state.text == s:
             state.click()
@@ -57,12 +58,12 @@ def autofill_shipping():
 
 def autofill_card():
     # Read in card information from file.
-    with open('CardInfo.txt','r') as card:
-        #Autofill form.
+    with open('CardInfo.txt', 'r') as card:
+        # Autofill form.
         driver.find_element_by_id('dwfrm_payment_creditCard_number').send_keys(card.readline())
         driver.find_element_by_id('dwfrm_payment_creditCard_cvn').send_keys(card.readline())
-        m = (card.readline()).replace('\n','')
-        y = (card.readline()).replace('\n','')
+        m = (card.readline()).replace('\n', '')
+        y = (card.readline()).replace('\n', '')
     # Open dropdown menus; get months & years
     driver.find_element_by_id('dwfrm_payment_creditCard_month_display_field').click()
     driver.find_element_by_id('dwfrm_payment_creditCard_year_display_field').click()

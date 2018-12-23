@@ -1,21 +1,22 @@
 import requests
 import json
-import bs4
 import browserOps
 
-# Generates Adidas URL for sneaker based on sneaker type, size, and model
-def URLGen(model,size):
+# @param model specific model for purchase
+# @param size spefific size for purchase
+# NOTE: Currently only NMD_R1 Style
+def url_gen(model,size):
     base_size = 560
     # this base size is for size 5.5 shoes
     shoe_size = size - 5.5
     shoe_size = shoe_size * 20
     raw_size = shoe_size + base_size
     shoe_size_code = int(raw_size)
-    URL = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
-    return URL
+    url = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
+    return url
 
-# Returns a dictionary of shoe sizes and online availability
-# for a specific Adidas sneaker model
+# @param model specific adidas model for purchase
+# @return size_lookup dictionary of sizes/availability for model
 def check_stock(model):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
     size_url = 'https://www.adidas.com/api/products/{}/availability?sitePath=us'.format(str(model))
@@ -30,15 +31,17 @@ def check_stock(model):
         size_lookup.update(value)
     return size_lookup
 
-def Main():
+def main():
     size = input('Shoe size: ')
     model = raw_input('Model #: ')
-    sneakerBot(model,size)
+    sneaker_bot(model,size)
 
-# Set up bot environment to automate purchase if sneaker is available
-def sneakerBot(model,size):
+# Sets up bot environment to automate purchase sneaker if available.
+# @param model specific model for purchase
+# @param size specific size for purchase
+def sneaker_bot(model,size):
     sizes = check_stock(model)
-    url = URLGen(model,size)
+    url = url_gen(model,size)
     if str(size) in sizes:
         if str(sizes[str(size)]) == 'IN_STOCK':
             print "We're securing you a pair!"
