@@ -2,7 +2,6 @@ import requests
 import json
 import browserOps
 
-# @param model specific model for purchase
 # @param size spefific size for purchase
 def url_gen(size):
     base_size = 560
@@ -36,7 +35,6 @@ def main():
     sneaker_bot(size)
 
 # Sets up bot environment to automate purchase sneaker if available.
-# @param model specific model for purchase
 # @param size specific size for purchase
 def sneaker_bot(size):
     sizes = check_stock()
