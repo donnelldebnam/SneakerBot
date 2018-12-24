@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 import browserOps
 
 # @param size spefific size for purchase
@@ -10,17 +11,21 @@ def url_gen(size):
     shoe_size = shoe_size * 20
     raw_size = shoe_size + base_size
     shoe_size_code = int(raw_size)
-    #url = 'https://www.adidas.com/us/nmd_r1/' + str(model) + '.html?forceSelSize=' + str(model) + '_' + str(shoe_size_code)
     url = 'https://www.adidas.com/us/yeezy-boost-350-v2-static-non-reflective/EF2905.html?forceSelSize=_' + str(shoe_size_code)
     return url
 
 # @param model specific adidas model for purchase
-# @return size_lookup dictionary of sizes/availability for model
+# @return size_lookup dictionary of sizes/availability
 def check_stock():
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
     size_url = 'https://www.adidas.com/api/products/EF2905/availability?sitePath=us'
     raw_sizes = (requests.get(size_url,headers=headers)).text
     size_data = json.loads(raw_sizes)
+    # while sneaker availability has not officially released,
+    # wait until it releases...
+    if size_data['availability_status'] == 'PREVIEW':
+        print "running method again..."
+        check_stock()
     list = size_data['variation_list']
     size_dict = {}
     size_lookup = {}
