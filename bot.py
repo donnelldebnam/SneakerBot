@@ -2,6 +2,7 @@ import requests
 import json
 import time
 import browserOps
+from fake_useragent import UserAgent
 
 # @param size spefific size for purchase
 def url_gen(size):
@@ -17,14 +18,15 @@ def url_gen(size):
 # @param model specific adidas model for purchase
 # @return size_lookup dictionary of sizes/availability
 def check_stock():
-    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    ua = UserAgent()
+    headers = {'User-Agent':str(ua.msie)}
     size_url = 'https://www.adidas.com/api/products/EF2905/availability?sitePath=us'
     raw_sizes = (requests.get(size_url,headers=headers)).text
     size_data = json.loads(raw_sizes)
     # while sneaker availability has not officially released,
     # wait until it releases...
     if size_data['availability_status'] == 'PREVIEW':
-        print "running method again..."
+        print "Waiting for sizing to be updated..."
         check_stock()
     list = size_data['variation_list']
     size_dict = {}
