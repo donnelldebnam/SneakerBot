@@ -1,26 +1,29 @@
+# - *- coding: utf- 8 - *-
 import requests
 import json
-import time
 import browserOps
+import threading
 from fake_useragent import UserAgent
+from concurrent.futures import ThreadPoolExecutor as Pool
 
-# @param size spefific size for purchase
-def url_gen(size):
-    base_size = 560
-    # this base size is for size 5.5 shoes
-    shoe_size = size - 5.5
-    shoe_size = shoe_size * 20
-    raw_size = shoe_size + base_size
-    shoe_size_code = int(raw_size)
-    url = 'https://www.adidas.com/us/yeezy-boost-350-v2-static-non-reflective/EF2905.html?forceSelSize=_' + str(shoe_size_code)
+proxies = {
+    'http: '
+    'https: '
+}
+sizes = [8.5, 9, 9.5, 10]
+thread_count = 8
+
+# :param size spefific size for purchase
+def url_gen(model,size):
+    url = 'https://www.adidas.com/us/yeezy/{}.html?forceSelSize='.format(model) + str(size)
     return url
 
-# @param model specific adidas model for purchase
-# @return size_lookup dictionary of sizes/availability
-def check_stock():
+# :param model specific model of sneaker
+# :return size_lookup dictionary of sizes/availability
+def check_stock(model):
     ua = UserAgent()
     headers = {'User-Agent':str(ua.msie)}
-    size_url = 'https://www.adidas.com/api/products/EF2905/availability?sitePath=us'
+    size_url = 'https://www.adidas.com/api/products/{}/availability?sitePath=us'.format(model)
     raw_sizes = (requests.get(size_url,headers=headers)).text
     size_data = json.loads(raw_sizes)
     # while sneaker availability has not officially released,
@@ -38,14 +41,15 @@ def check_stock():
     return size_lookup
 
 def main():
+    model = raw_input('Model: ')
     size = input('Shoe size: ')
-    sneaker_bot(size)
+    sneaker_bot(model,size)
 
 # Sets up bot environment to automate purchase sneaker if available.
-# @param size specific size for purchase
-def sneaker_bot(size):
-    sizes = check_stock()
-    url = url_gen(size)
+# :param size specific size for purchase
+def sneaker_bot(model,size):
+    sizes = check_stock(model)
+    url = url_gen(model,size)
     if str(size) in sizes:
         if str(sizes[str(size)]) == 'IN_STOCK':
             print "We're securing you a pair!"
@@ -56,3 +60,9 @@ def sneaker_bot(size):
             print "Size not available!"
     else:
         print "We were not able to save you a pair :("
+
+# Allows for multitreading in order to purchase all sizes
+# specified in size list
+with Pool(thread_count) as executor:
+    for size in sizes:
+        executor.submit(sneaker_bot,size)﻿
